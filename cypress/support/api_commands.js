@@ -3,12 +3,10 @@
 const spotify_token = Cypress.env("spotify_token");
 const Authorization = `Bearer ${spotify_token}`;
 
-Cypress.Commands.add("api_createPlaylist", playlist => {
+Cypress.Commands.add("api_createPlaylist", (playlist) => {
   cy.request({
     method: "POST",
-    url:
-      Cypress.env("url_post") +
-      "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
+    url: "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
     headers: {
       Authorization,
     },

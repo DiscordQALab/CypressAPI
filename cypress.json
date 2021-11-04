@@ -1,3 +1,4 @@
 {
+  "baseUrl":"https://api.spotify.com",
   "video":false
 }
