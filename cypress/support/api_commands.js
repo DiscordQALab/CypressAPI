@@ -6,10 +6,27 @@ const Authorization = `Bearer ${spotify_token}`;
 Cypress.Commands.add("api_createPlaylist", (playlist) => {
   cy.request({
     method: "POST",
-    url: "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
+    url:
+      Cypress.env("url_post") +
+      "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
     headers: {
       Authorization,
     },
+    body: {
+      name: playlist.name,
+      description: playlist.description,
+      public: false,
+    },
+  });
+});
+Cypress.Commands.add("api_createPlaylistFailed", (playlist) => {
+  cy.request({
+    method: "POST",
+    url:
+      Cypress.env("url_post") +
+      "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
+    headers: {},
+    failOnStatusCode: false,
     body: {
       name: playlist.name,
       description: playlist.description,

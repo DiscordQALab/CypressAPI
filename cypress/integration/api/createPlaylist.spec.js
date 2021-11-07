@@ -10,7 +10,7 @@ describe("Create Playlist", () => {
       public: false,
     };
 
-    cy.api_createPlaylist(playlist).then(response => {
+    cy.api_createPlaylist(playlist).then((response) => {
       expect(response.status).to.equal(201);
       expect(response.body.name).to.equal(playlist.name);
       expect(response.body.description).to.equal(playlist.description);
