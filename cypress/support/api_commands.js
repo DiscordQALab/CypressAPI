@@ -7,7 +7,7 @@ Cypress.Commands.add("api_createPlaylist", (playlist) => {
   cy.request({
     method: "POST",
     url:
-      Cypress.env("url_post") +
+      Cypress.env("url_base") +
       "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
     headers: {
       Authorization,
@@ -23,7 +23,7 @@ Cypress.Commands.add("api_authorizationFailed", (playlist) => {
   cy.request({
     method: "POST",
     url:
-      Cypress.env("url_post") +
+      Cypress.env("url_base") +
       "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
     headers: {},
     failOnStatusCode: false,
@@ -39,15 +39,22 @@ Cypress.Commands.add("api_requisitionFailed", (playlist) => {
   cy.request({
     method: "POST",
     url:
-      Cypress.env("url_post") +
+      Cypress.env("url_base") +
       "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
     headers: {
-      Authorization
+      Authorization,
     },
     failOnStatusCode: false,
-    body: {
-      
-    },
+    body: {},
   });
 });
 
+Cypress.Commands.add("api_searchPlaylist", () => {
+  cy.request({
+    method: "GET",
+    url: Cypress.env("url_base") + "/v1/me/playlists",
+    headers: {
+      Authorization, 
+    },
+  });
+});
