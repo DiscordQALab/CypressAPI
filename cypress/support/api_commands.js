@@ -54,7 +54,15 @@ Cypress.Commands.add("api_searchPlaylist", () => {
     method: "GET",
     url: Cypress.env("url_base") + "/v1/me/playlists",
     headers: {
-      Authorization, 
+      Authorization,
     },
+  });
+});
+
+Cypress.Commands.add("api_failedGetAuth", () => {
+  cy.request({
+    method: "GET",
+    url: Cypress.env("url_base") + "/v1/me/playlists",
+    failOnStatusCode: false,
   });
 });
