@@ -2,18 +2,18 @@
 
 const faker = require("faker");
 
-describe("Requisition the failed", () => {
-  it("Open with requisition failed", () => {
+describe("Create Playlist Failed", () => {
+  it("Playlist create Failed", () => {
     const playlist = {
       name: `playlist-${faker.datatype.uuid()}`,
       description: faker.random.words(10),
       public: false,
     };
 
-    cy.api_requisitionFailed(playlist).then((response) => {
-      expect(response.status).to.equal(400);
+    cy.api_createAuthorizationFailed(playlist).then((response) => {
+      expect(response.status).to.equal(401);
       expect(response.body.name).to.equal(playlist.undefined);
       expect(response.body.description).to.equal(playlist.undefined);
     });
   });
-})
+});

@@ -19,7 +19,7 @@ Cypress.Commands.add("api_createPlaylist", (playlist) => {
     },
   });
 });
-Cypress.Commands.add("api_authorizationFailed", (playlist) => {
+Cypress.Commands.add("api_createAuthorizationFailed", (playlist) => {
   cy.request({
     method: "POST",
     url:
@@ -35,7 +35,7 @@ Cypress.Commands.add("api_authorizationFailed", (playlist) => {
   });
 });
 
-Cypress.Commands.add("api_requisitionFailed", (playlist) => {
+Cypress.Commands.add("api_createRequisitionFailed", (playlist) => {
   cy.request({
     method: "POST",
     url:
@@ -49,7 +49,7 @@ Cypress.Commands.add("api_requisitionFailed", (playlist) => {
   });
 });
 
-Cypress.Commands.add("api_searchPlaylist", () => {
+Cypress.Commands.add("api_listPlaylist", () => {
   cy.request({
     method: "GET",
     url: Cypress.env("url_base") + "/v1/me/playlists",
@@ -59,7 +59,7 @@ Cypress.Commands.add("api_searchPlaylist", () => {
   });
 });
 
-Cypress.Commands.add("api_failedGetAuth", () => {
+Cypress.Commands.add("api_listFailedAuth", () => {
   cy.request({
     method: "GET",
     url: Cypress.env("url_base") + "/v1/me/playlists",
