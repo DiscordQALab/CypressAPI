@@ -6,12 +6,29 @@ const tracks = `${playlist_id}/tracks?uris=spotify%3Atrack%3A06xAXT9rka5ZGu19gcb
 
 Cypress.Commands.add('playlistAddItems', () => {
   cy.request({
-        method: "POST",
-        url: tracks,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-          Authorization,
-        }
-    })
+    method: "POST",
+    url: tracks,
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      Authorization,
+    }
   })
+})
+
+Cypress.Commands.add('removePlaylistItems', () => {
+  cy.request({
+    method: "DELETE",
+    url: playlist_id + "/tracks",
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      Authorization,
+    },
+    body: {
+      "tracks": [{ 
+        "uri": "spotify:track:4iV5W9uYEdYUVa79Axb7Rh" 
+      }]
+    }
+  })
+})
