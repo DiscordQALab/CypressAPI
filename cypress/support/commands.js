@@ -23,3 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+const clientID = Cypress.env("clientID");
+const client_secret = Cypress.env("client_secret");
+//const OAuth2 = Authorization + clientID  + client_secret.toString('base64')
