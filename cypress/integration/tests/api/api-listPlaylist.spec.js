@@ -8,4 +8,10 @@ describe("Search Playlist", () => {
       expect(response.status).to.equal(200);
     });
   });
+
+  it("Playlist Failed Authentication", () => {
+    cy.api_listFailedAuth().then((response) => {
+      expect(response.status).to.equal(401);
+    });
+  });
 });
