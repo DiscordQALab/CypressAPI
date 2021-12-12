@@ -1,4 +1,4 @@
-import { playlist_id, tracks, baseUrl_v1 } from '../../../support/utils';
+import { playlist_id, tracks, baseUrl_v1 } from '../../support/utils';
 describe("Remove tracks from playlist", () => {
   let dataTracks;
   before(() => {
@@ -22,7 +22,7 @@ describe("Remove tracks from playlist", () => {
       })
   })
 
-  it.only("Contract", () => {
+  it("Contract", () => {
     cy.removeItemPlaylistItems(playlist_id, dataTracks.track_correct)
       .should((res) => {
         expect('snapshot_id').to.be.a('string')

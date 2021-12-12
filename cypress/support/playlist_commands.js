@@ -1,4 +1,5 @@
 import { token, headers } from '../support/utils';
+import "@bahmutov/cy-api/support";
 
 Cypress.Commands.add('playlistAddItems', () => {
   cy.request({
@@ -13,7 +14,7 @@ Cypress.Commands.add('playlistAddItems', () => {
 })
 
 Cypress.Commands.add('removeItemPlaylistItems', (playlist_id, track_valid, track2_valid) => {
-  cy.request({
+  cy.api({
     failOnStatusCode: false,
     method: "DELETE",
     url: `${playlist_id}/tracks`,

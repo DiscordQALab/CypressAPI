@@ -1,5 +1,4 @@
 const token = Cypress.env("token");
-const baseUrl = Cypress.env("baseUrl");
 
 export const authorization = `Bearer ${token}`; 
 export const baseUrl_v1 = 'https://api.spotify.com/v1'
